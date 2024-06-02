@@ -61,15 +61,26 @@ def confidenceScore_k(Lk_1, Lk, k, k_top=5):
             conf_score[elem] = temp[elem] / float(Lk_1[elem[:-1]])
     return top_k_sorted_dict(conf_score, k_top)
 
+
 def output_result(cs2, cs3):
     with open("output.txt", "w") as file:
         file.write("OUTPUT A\n")
         for rule in cs2:
-            file.write(str(rule[0][0]) + " -> " + str(rule[0][1]) + " : " + str(rule[1]) + "\n")
+            file.write(
+                str(rule[0][0]) + " -> " + str(rule[0][1]) + " : " + str(rule[1]) + "\n"
+            )
         file.write("\nOUTPUT B\n")
         for rule in cs3:
-            file.write(str(rule[0][0]) + ", " + str(rule[0][1]) + " -> " + str(rule[0][2]) + " : " + str(rule[1]) + "\n")
-
+            file.write(
+                str(rule[0][0])
+                + ", "
+                + str(rule[0][1])
+                + " -> "
+                + str(rule[0][2])
+                + " : "
+                + str(rule[1])
+                + "\n"
+            )
 
 
 def main():
